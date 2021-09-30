@@ -3,10 +3,6 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   strong-mode:
     implicit-casts: false
-  exclude:
-    # ignore vscode .history files
-    - .history/**
-    - test_data/**
 linter:
   rules:
 #    - always_put_control_body_on_new_line
