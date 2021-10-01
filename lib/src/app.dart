@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'configs/routes.dart';
 import 'screens/splash/splash_screen.dart';
+import 'styles/app_theme.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -10,9 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: AppTheme.getAppTheme(),
         routes: buildRoutes(),
         home: const SplashScreen());
   }

@@ -3,6 +3,8 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   strong-mode:
     implicit-casts: false
+  errors:
+    library_prefixes : ignore
 linter:
   rules:
 #    - always_put_control_body_on_new_line

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:interview_task/src/constants/global_constants.dart';
 
-// ignore: library_prefixes
 import '../../constants/app_language.dart' as AppLanguage;
 import '../../widgets/rounded_button.dart';
 
@@ -22,63 +22,77 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(flex: 307),
-              const Expanded(
-                  flex: 54,
-                  child:
-                      Image(image: AssetImage('assets/images/app_logo.png'))),
+              Expanded(
+                flex: 54,
+                child: Image.asset('assets/images/app_logo.png'),
+              ),
               const Spacer(flex: 340),
               Expanded(
                 flex: 111,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
-                      child: Row(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Image(
-                              image:
-                                  AssetImage('assets/images/profile_icon.png')),
+                          Image.asset('assets/images/profile_icon.png'),
                           const SizedBox(width: 8.0),
                           Column(
-                            children: const [
-                              Text(AppLanguage.Splash.userName),
-                              Text(AppLanguage.Splash.userNameTag),
+                            children: [
+                              Text(
+                                AppLanguage.Splash.userName,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText2!
+                                    .copyWith(fontWeight: FontWeight.w700),
+                              ),
+                              Text(
+                                AppLanguage.Splash.userNameTag,
+                                style: Theme.of(context).textTheme.caption,
+                              ),
                             ],
                           )
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 16.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RoundedButton(
-                          height: 52.0,
-                          width: 167,
-                          text: AppLanguage.Splash.login,
-                          textStyle: const TextStyle(
-                            fontSize: 13.0,
+                      const SizedBox(height: 16.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          RoundedButton(
+                            height: 52.0,
+                            width: MediaQuery.of(context).size.width / 2 - 21.0,
+                            text: AppLanguage.Splash.login,
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .button!
+                                .copyWith(color: Colors.black),
+                            backgroundColor: Colors.white,
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                  context, RouteName.login);
+                            },
                           ),
-                          textColor: Colors.black,
-                          backgroundColor: Colors.white,
-                          onPressed: () {},
-                        ),
-                        const SizedBox(width: 12),
-                        RoundedButton(
-                          height: 52.0,
-                          width: 167,
-                          text: AppLanguage.Splash.register,
-                          textStyle: const TextStyle(
-                            fontSize: 13.0,
+                          const SizedBox(width: 12),
+                          RoundedButton(
+                            height: 52.0,
+                            width: MediaQuery.of(context).size.width / 2 - 21.0,
+                            text: AppLanguage.Splash.register,
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .button!
+                                .copyWith(color: Colors.white),
+                            backgroundColor: Colors.black,
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                  context, RouteName.register);
+                            },
                           ),
-                          textColor: Colors.white,
-                          backgroundColor: Colors.black,
-                          onPressed: () {},
-                        ),
-                      ],
-                    )
-                  ],
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
