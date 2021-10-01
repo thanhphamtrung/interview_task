@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:interview_task/src/constants/global_constants.dart';
+import 'package:interview_task/src/services/app_localization/app_localizations.dart';
 
 import '../../constants/app_language.dart' as AppLanguage;
+import '../../constants/global_constants.dart';
 import '../../widgets/rounded_button.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -63,7 +64,7 @@ class SplashScreen extends StatelessWidget {
                           RoundedButton(
                             height: 52.0,
                             width: MediaQuery.of(context).size.width / 2 - 21.0,
-                            text: AppLanguage.Splash.login,
+                            text: AppLocalizations.of(context)!.login,
                             textStyle: Theme.of(context)
                                 .textTheme
                                 .button!
@@ -78,7 +79,7 @@ class SplashScreen extends StatelessWidget {
                           RoundedButton(
                             height: 52.0,
                             width: MediaQuery.of(context).size.width / 2 - 21.0,
-                            text: AppLanguage.Splash.register,
+                            text: AppLocalizations.of(context)!.register,
                             textStyle: Theme.of(context)
                                 .textTheme
                                 .button!
