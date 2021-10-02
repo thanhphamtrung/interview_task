@@ -8,11 +8,14 @@ class AppLocalizationsVi extends AppLocalizations {
   String get login => 'ĐĂNG NHẬP';
 
   @override
-  String get register => 'ĐĂNG XUẤT';
+  String get register => 'ĐĂNG KÍ';
 
   @override
   String get userNameHintText => 'Tên Đăng Nhập';
 
   @override
   String get passwordHintText => 'Mật Khẩu';
+
+  @override
+  String get reEnterPasswordHintText => 'Nhập Lại Mật Khẩu';
 }

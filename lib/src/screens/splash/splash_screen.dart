@@ -63,7 +63,8 @@ class SplashScreen extends StatelessWidget {
                         children: [
                           RoundedButton(
                             height: 52.0,
-                            width: MediaQuery.of(context).size.width / 2 - 21.0,
+                            minWidth:
+                                MediaQuery.of(context).size.width / 2 - 21.0,
                             text: AppLocalizations.of(context)!.login,
                             textStyle: Theme.of(context)
                                 .textTheme
@@ -77,7 +78,8 @@ class SplashScreen extends StatelessWidget {
                           const SizedBox(width: 12),
                           RoundedButton(
                             height: 52.0,
-                            width: MediaQuery.of(context).size.width / 2 - 21.0,
+                            minWidth:
+                                MediaQuery.of(context).size.width / 2 - 21.0,
                             text: AppLocalizations.of(context)!.register,
                             textStyle: Theme.of(context)
                                 .textTheme

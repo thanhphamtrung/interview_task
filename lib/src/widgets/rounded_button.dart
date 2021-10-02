@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
   final double height;
-  final double width;
+  final double minWidth;
   final String text;
   final TextStyle? textStyle;
   final Color backgroundColor;
@@ -10,12 +10,12 @@ class RoundedButton extends StatelessWidget {
   final VoidCallback? onPressed;
   const RoundedButton({
     required this.height,
-    required this.width,
     required this.text,
     required this.textStyle,
     required this.backgroundColor,
     required this.onPressed,
     this.borderColor = Colors.black,
+    this.minWidth = 0,
     Key? key,
   }) : super(key: key);
 
@@ -24,7 +24,7 @@ class RoundedButton extends StatelessWidget {
     return ElevatedButton(
         child: Text(text, style: textStyle),
         style: ButtonStyle(
-            minimumSize: MaterialStateProperty.all(Size(width, height)),
+            minimumSize: MaterialStateProperty.all(Size(minWidth, height)),
             backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(

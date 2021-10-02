@@ -2,5 +2,6 @@
     "login": "ĐĂNG NHẬP",
     "register": "ĐĂNG XUẤT",
     "userNameHintText": "Tên Đăng Nhập",
-    "passwordHintText": "Mật Khẩu"
+    "passwordHintText": "Mật Khẩu",
+    "reEnterPasswordHintText": "Nhập Lại Mật Khẩu"
 }

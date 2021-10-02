@@ -18,4 +18,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordHintText => 'Password';
+
+  @override
+  String get reEnterPasswordHintText => 'Re-Enter Password';
 }

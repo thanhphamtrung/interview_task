@@ -117,6 +117,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password'**
   String get passwordHintText;
+
+  /// No description provided for @reEnterPasswordHintText.
+  ///
+  /// In en, this message translates to:
+  /// **'Re-Enter Password'**
+  String get reEnterPasswordHintText;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

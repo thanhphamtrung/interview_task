@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interview_task/src/widgets/rounded_button.dart';
 
 import '../../services/app_localization/app_localizations.dart';
 import '../../widgets/rounded_text_field.dart';
@@ -48,6 +49,17 @@ class LoginScreen extends StatelessWidget {
                     return null;
                   },
                   hintText: AppLocalizations.of(context)!.passwordHintText,
+                ),
+                const SizedBox(height: 16.0),
+                RoundedButton(
+                  height: 52.0,
+                  text: AppLocalizations.of(context)!.login,
+                  textStyle: Theme.of(context)
+                      .textTheme
+                      .button!
+                      .copyWith(color: Colors.white),
+                  backgroundColor: Colors.black,
+                  onPressed: () {},
                 ),
               ],
             ),

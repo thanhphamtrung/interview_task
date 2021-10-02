@@ -2,5 +2,6 @@
     "login": "LOGIN",
     "register": "REGISTER",
     "userNameHintText": "User Name",
-    "passwordHintText": "Password"
+    "passwordHintText": "Password",
+    "reEnterPasswordHintText": "Re-Enter Password"
 }
