@@ -105,6 +105,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'REGISTER'**
   String get register;
+
+  /// No description provided for @userNameHintText.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name'**
+  String get userNameHintText;
+
+  /// No description provided for @passwordHintText.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordHintText;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

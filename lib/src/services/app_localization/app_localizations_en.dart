@@ -12,4 +12,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get register => 'REGISTER';
+
+  @override
+  String get userNameHintText => 'User Name';
+
+  @override
+  String get passwordHintText => 'Password';
 }

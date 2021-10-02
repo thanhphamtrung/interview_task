@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:interview_task/src/services/app_localization/app_localizations.dart';
 
 import '../../constants/app_language.dart' as AppLanguage;
 import '../../constants/global_constants.dart';
+import '../../services/app_localization/app_localizations.dart';
 import '../../widgets/rounded_button.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -71,8 +71,7 @@ class SplashScreen extends StatelessWidget {
                                 .copyWith(color: Colors.black),
                             backgroundColor: Colors.white,
                             onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, RouteName.login);
+                              Navigator.pushNamed(context, RouteName.login);
                             },
                           ),
                           const SizedBox(width: 12),
@@ -86,8 +85,7 @@ class SplashScreen extends StatelessWidget {
                                 .copyWith(color: Colors.white),
                             backgroundColor: Colors.black,
                             onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, RouteName.register);
+                              Navigator.pushNamed(context, RouteName.register);
                             },
                           ),
                         ],

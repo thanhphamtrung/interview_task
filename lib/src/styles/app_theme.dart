@@ -20,7 +20,7 @@ class AppTheme {
         headline3: TextStyle(
             fontSize: 48.0, fontWeight: FontWeight.bold, color: Colors.black),
         headline4: TextStyle(
-            fontSize: 34.0, fontWeight: FontWeight.w900, color: Colors.black),
+            fontSize: 36.0, fontWeight: FontWeight.w900, color: Colors.black),
         headline5: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.w900,

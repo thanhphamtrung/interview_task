@@ -1,4 +1,6 @@
 {
     "login": "LOGIN",
-    "register": "REGISTER"
+    "register": "REGISTER",
+    "userNameHintText": "User Name",
+    "passwordHintText": "Password"
 }
