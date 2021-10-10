@@ -14,7 +14,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginUserChecked>((event, emit) async {
       var users = await AuthenService().getCredentialData();
       var userToCheck = event.user;
-      for (UserCredential user in users) {
+      for (UserCredential user in users as List<UserCredential>) {
         if (user.username == userToCheck.username &&
             user.password == userToCheck.password) {
           return emit(LoginSuccess());

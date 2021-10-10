@@ -32,7 +32,6 @@ void main() {
       home: const SplashScreen(),
     ));
     await tester.pumpAndSettle();
-    await Future.delayed(Duration(minutes: 1));
 
     var bgFinder = find.byWidgetPredicate((widget) {
       return widget is Image &&

@@ -4,6 +4,7 @@ class RoundedTextField extends StatelessWidget {
   final Function(String?) onSaved;
   final String? Function(String?)? validator;
   final Function(String)? onFieldSubmitted;
+  final Function(String)? onChanged;
   final String hintText;
   final bool autoFocus;
   final bool obscureText;
@@ -11,6 +12,7 @@ class RoundedTextField extends StatelessWidget {
     required this.onSaved,
     this.validator,
     this.onFieldSubmitted,
+    this.onChanged,
     this.hintText = '',
     this.autoFocus = false,
     this.obscureText = false,
@@ -24,6 +26,7 @@ class RoundedTextField extends StatelessWidget {
       validator: validator,
       autofocus: autoFocus,
       obscureText: obscureText,
+      onChanged: onChanged,
       onFieldSubmitted: onFieldSubmitted,
 
       // cursorColor: kPrimaryColor,

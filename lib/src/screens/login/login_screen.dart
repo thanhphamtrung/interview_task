@@ -137,7 +137,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           Padding(
                             padding: const EdgeInsets.only(top: 16),
                             child: Text(
-                              'User Name Or Password Is Not Correct!',
+                              AppLocalizations.of(context)!
+                                  .userNameOrPasswordInValid,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText1!
