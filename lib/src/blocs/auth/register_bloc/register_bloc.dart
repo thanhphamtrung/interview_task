@@ -26,6 +26,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       if (!_isAddSuccess) {
         return emit(RegisterAddNewUserFail());
       }
+      return emit(RegisterAddNewUserSuccess());
     });
   }
 }

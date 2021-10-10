@@ -41,6 +41,7 @@ class SplashScreen extends StatelessWidget {
                           Image.asset('assets/images/profile_icon.png'),
                           const SizedBox(width: 8.0),
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 AppLanguage.Splash.userName,

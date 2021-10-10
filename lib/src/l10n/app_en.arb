@@ -6,5 +6,8 @@
     "reEnterPasswordHintText": "Re-Enter Password",
     "userNameValidatorMessage": "User Name Is Invalid!",
     "passwordValidatorMessage": "Password Must Have 6 Or More Characters!",
-    "userNameOrPasswordInValid": "User Name Or Password Is Not Correct!"
+    "userNameOrPasswordInValid": "User Name Or Password Is Not Correct!",
+    "browseAll": "BROWSE ALL",
+    "seeMore": "SEE MORE",
+    "whatNew": "WHAT'S NEW TODAY"
 }

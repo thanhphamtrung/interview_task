@@ -30,4 +30,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get userNameOrPasswordInValid => 'User Name Or Password Is Not Correct!';
+
+  @override
+  String get browseAll => 'BROWSE ALL';
+
+  @override
+  String get seeMore => 'SEE MORE';
+
+  @override
+  String get whatNew => 'WHAT\'S NEW TODAY';
 }

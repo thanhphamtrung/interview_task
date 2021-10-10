@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:string_validator/string_validator.dart';
 
 import '../../blocs/auth/register_bloc/register_bloc.dart';
+import '../../constants/global_constants.dart';
 import '../../helpers/string_helpers.dart';
 import '../../models/user/user_credential.dart';
 import '../../services/app_localization/app_localizations.dart';
@@ -28,7 +29,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     super.initState();
     _authSubscription =
-        context.read<RegisterBloc>().stream.listen((RegisterState state) {});
+        context.read<RegisterBloc>().stream.listen((RegisterState state) {
+      if (state is RegisterAddNewUserSuccess) {
+        Navigator.of(context).pushReplacementNamed(RouteName.navigationScreen);
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      }
+    });
   }
 
   @override
@@ -142,7 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const SizedBox(height: 16.0),
                   RoundedButton(
                     height: 52.0,
-                    minWidth: MediaQuery.of(context).size.width - 32,
+                    minWidth: MediaQuery.of(context).size.width,
                     text: AppLocalizations.of(context)!.register,
                     textStyle: Theme.of(context)
                         .textTheme

@@ -29,7 +29,12 @@ class _LoginScreenState extends State<LoginScreen> {
     _authSubscription =
         context.read<LoginBloc>().stream.listen((LoginState state) {
       if (state is LoginSuccess) {
-        Navigator.of(context).pushNamed(RouteName.register);
+        Navigator.of(context).pushReplacementNamed(RouteName.navigationScreen);
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
       } else if (state is LoginFail) {
         setState(() {
           _showUnAuthentedMessage = true;
@@ -150,6 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 16.0),
                 RoundedButton(
                   height: 52.0,
+                  minWidth: MediaQuery.of(context).size.width,
                   text: AppLocalizations.of(context)!.login,
                   textStyle: Theme.of(context)
                       .textTheme

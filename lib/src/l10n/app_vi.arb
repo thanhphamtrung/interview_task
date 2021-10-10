@@ -6,5 +6,8 @@
     "reEnterPasswordHintText": "Nhập Lại Mật Khẩu",
     "userNameValidatorMessage": "Tên Đăng Nhập Không Hợp Lệ!",
     "passwordValidatorMessage": "Mật Khẩu Phải Từ 6 Kí Tự!",
-    "userNameOrPasswordInValid": "Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng!"
+    "userNameOrPasswordInValid": "Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng!",
+    "browseAll": "XEM TOÀN BỘ",
+    "seeMore": "XEM THÊM",
+    "whatNew": "Có Gì Mới"
 }

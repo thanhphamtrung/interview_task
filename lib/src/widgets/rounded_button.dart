@@ -29,7 +29,7 @@ class RoundedButton extends StatelessWidget {
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-                    side: BorderSide(color: borderColor)))),
+                    side: BorderSide(color: borderColor, width: 2)))),
         onPressed: onPressed);
   }
 }

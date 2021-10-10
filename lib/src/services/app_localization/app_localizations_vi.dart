@@ -30,4 +30,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get userNameOrPasswordInValid => 'Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng!';
+
+  @override
+  String get browseAll => 'XEM TOÀN BỘ';
+
+  @override
+  String get seeMore => 'XEM THÊM';
+
+  @override
+  String get whatNew => 'Có Gì Mới';
 }
