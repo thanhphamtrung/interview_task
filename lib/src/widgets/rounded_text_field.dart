@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 
 class RoundedTextField extends StatelessWidget {
-  final Function(String?) onChanged;
+  final Function(String?) onSaved;
   final String? Function(String?)? validator;
+  final Function(String)? onFieldSubmitted;
   final String hintText;
   final bool autoFocus;
+  final bool obscureText;
   const RoundedTextField({
-    required this.onChanged,
+    required this.onSaved,
     this.validator,
+    this.onFieldSubmitted,
     this.hintText = '',
     this.autoFocus = false,
+    this.obscureText = false,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onChanged: onChanged,
+      onSaved: onSaved,
       validator: validator,
       autofocus: autoFocus,
+      obscureText: obscureText,
+      onFieldSubmitted: onFieldSubmitted,
+
       // cursorColor: kPrimaryColor,
       decoration: InputDecoration(
         focusedBorder: const OutlineInputBorder(

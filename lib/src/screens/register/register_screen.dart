@@ -36,7 +36,7 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 16.0),
                 RoundedTextField(
                   autoFocus: true,
-                  onChanged: (value) {},
+                  onSaved: (value) {},
                   validator: (value) {
                     return null;
                   },
@@ -44,7 +44,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16.0),
                 RoundedTextField(
-                  onChanged: (value) {},
+                  onSaved: (value) {},
                   validator: (value) {
                     return null;
                   },
@@ -52,7 +52,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16.0),
                 RoundedTextField(
-                  onChanged: (value) {},
+                  onSaved: (value) {},
                   validator: (value) {
                     return null;
                   },

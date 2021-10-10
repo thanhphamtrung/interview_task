@@ -123,6 +123,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Re-Enter Password'**
   String get reEnterPasswordHintText;
+
+  /// No description provided for @userNameValidatorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name Is Invalid!'**
+  String get userNameValidatorMessage;
+
+  /// No description provided for @passwordValidatorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Must Have 6 Or More Characters!'**
+  String get passwordValidatorMessage;
+
+  /// No description provided for @userNameOrPasswordInValid.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name Or Password Is Not Correct!'**
+  String get userNameOrPasswordInValid;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -3,5 +3,8 @@
     "register": "ĐĂNG XUẤT",
     "userNameHintText": "Tên Đăng Nhập",
     "passwordHintText": "Mật Khẩu",
-    "reEnterPasswordHintText": "Nhập Lại Mật Khẩu"
+    "reEnterPasswordHintText": "Nhập Lại Mật Khẩu",
+    "userNameValidatorMessage": "Tên Đăng Nhập Không Hợp Lệ!",
+    "passwordValidatorMessage": "Mật Khẩu Phải Từ 6 Kí Tự!",
+    "userNameOrPasswordInValid": "Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng!"
 }

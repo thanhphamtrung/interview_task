@@ -21,4 +21,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reEnterPasswordHintText => 'Re-Enter Password';
+
+  @override
+  String get userNameValidatorMessage => 'User Name Is Invalid!';
+
+  @override
+  String get passwordValidatorMessage => 'Password Must Have 6 Or More Characters!';
+
+  @override
+  String get userNameOrPasswordInValid => 'User Name Or Password Is Not Correct!';
 }

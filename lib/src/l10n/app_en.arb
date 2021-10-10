@@ -3,5 +3,8 @@
     "register": "REGISTER",
     "userNameHintText": "User Name",
     "passwordHintText": "Password",
-    "reEnterPasswordHintText": "Re-Enter Password"
+    "reEnterPasswordHintText": "Re-Enter Password",
+    "userNameValidatorMessage": "User Name Is Invalid!",
+    "passwordValidatorMessage": "Password Must Have 6 Or More Characters!",
+    "userNameOrPasswordInValid": "User Name Or Password Is Not Correct!"
 }

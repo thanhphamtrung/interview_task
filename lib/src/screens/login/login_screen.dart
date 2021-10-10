@@ -1,14 +1,56 @@
-import 'package:flutter/material.dart';
-import 'package:interview_task/src/widgets/rounded_button.dart';
+import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:string_validator/string_validator.dart';
+
+import '../../blocs/auth/login_bloc/login_bloc.dart';
+import '../../constants/global_constants.dart';
+import '../../helpers/string_helpers.dart';
+import '../../models/user/user_credential.dart';
 import '../../services/app_localization/app_localizations.dart';
+import '../../widgets/rounded_button.dart';
 import '../../widgets/rounded_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  late StreamSubscription _authSubscription;
+  bool _showUnAuthentedMessage = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _authSubscription =
+        context.read<LoginBloc>().stream.listen((LoginState state) {
+      if (state is LoginSuccess) {
+        Navigator.of(context).pushNamed(RouteName.register);
+      } else if (state is LoginFail) {
+        setState(() {
+          _showUnAuthentedMessage = true;
+        });
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('LOGIN FAIL')));
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _authSubscription.cancel();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    String _userName = '';
+    String _password = '';
+    var _formKey = GlobalKey<FormState>();
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -34,22 +76,76 @@ class LoginScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                         )),
                 const SizedBox(height: 16.0),
-                RoundedTextField(
-                  autoFocus: true,
-                  onChanged: (value) {},
-                  validator: (value) {
-                    return null;
-                  },
-                  hintText: AppLocalizations.of(context)!.userNameHintText,
-                ),
-                const SizedBox(height: 16.0),
-                RoundedTextField(
-                  onChanged: (value) {},
-                  validator: (value) {
-                    return null;
-                  },
-                  hintText: AppLocalizations.of(context)!.passwordHintText,
-                ),
+                Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RoundedTextField(
+                          autoFocus: true,
+                          onSaved: (value) {
+                            if (!StringHelper().isNullOrEmpty(value)) {
+                              setState(() {
+                                _userName = value!;
+                              });
+                            }
+                          },
+                          validator: (value) {
+                            if (value == null ||
+                                !(isAlphanumeric(value) || isEmail(value))) {
+                              return AppLocalizations.of(context)!
+                                  .userNameValidatorMessage;
+                            }
+                            return null;
+                          },
+                          onFieldSubmitted: (value) {
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              _onSubmited(_userName, _password);
+                            }
+                          },
+                          hintText:
+                              AppLocalizations.of(context)!.userNameHintText,
+                        ),
+                        const SizedBox(height: 16.0),
+                        RoundedTextField(
+                          obscureText: true,
+                          onSaved: (value) {
+                            if (!StringHelper().isNullOrEmpty(value)) {
+                              setState(() {
+                                _password = value!;
+                              });
+                            }
+                          },
+                          validator: (value) {
+                            if (value == null || value.length < 5) {
+                              return AppLocalizations.of(context)!
+                                  .passwordValidatorMessage;
+                            }
+                            return null;
+                          },
+                          onFieldSubmitted: (value) {
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              _onSubmited(_userName, _password);
+                            }
+                          },
+                          hintText:
+                              AppLocalizations.of(context)!.passwordHintText,
+                        ),
+                        if (_showUnAuthentedMessage)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: Text(
+                              'User Name Or Password Is Not Correct!',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(color: Colors.red),
+                            ),
+                          ),
+                      ],
+                    )),
                 const SizedBox(height: 16.0),
                 RoundedButton(
                   height: 52.0,
@@ -59,11 +155,21 @@ class LoginScreen extends StatelessWidget {
                       .button!
                       .copyWith(color: Colors.white),
                   backgroundColor: Colors.black,
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      _onSubmited(_userName, _password);
+                    }
+                  },
                 ),
               ],
             ),
           ),
         ));
+  }
+
+  void _onSubmited(String userName, String password) {
+    var user = UserCredential(username: userName, password: password);
+    BlocProvider.of<LoginBloc>(context).add(LoginUserChecked(user));
   }
 }
